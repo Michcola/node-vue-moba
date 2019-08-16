@@ -3,7 +3,7 @@
     <h1>{{id ? '编辑' : '新建'}}英雄</h1>
     <el-form label-width="120px" @submit.native.prevent="save">
       <el-tabs value="basic" type="border-card">
-        <el-tab-pane label="基础信息">
+        <el-tab-pane label="基础信息" name="basic">
           <el-form-item label="名称">
             <el-input v-model="model.name"></el-input>
           </el-form-item>

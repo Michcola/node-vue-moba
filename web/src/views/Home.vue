@@ -23,48 +23,25 @@
       <div class="bg-light py-2 fs-sm">
         <i class="sprite sprite-arrow mr-1"></i>
         <span>收起</span>
-        </div>
+      </div>
     </div>
     <!-- end of nav icons -->
-    
-    <m-card icon="menu1" title="新闻资讯">
-        <div class="nav jc-between">
-          <div class="nav-item active">
-            <div class="nav-link">热门</div>
-          </div>
-          <div class="nav-item">
-            <div class="nav-link">新闻</div>
-          </div>
-          <div class="nav-item">
-            <div class="nav-link">公告</div>
-          </div>
-          <div class="nav-item">
-            <div class="nav-link">活动</div>
-          </div>
-          <div class="nav-item">
-            <div class="nav-link">赛事</div>
-          </div>
-        </div>
 
-        <div class="pt-3">
-          <swiper>
-          <swiper-slide  v-for="m in 5" :key="m">
-            <div class="py-2" v-for="n in 5" :key="n">
-              <span>[新闻]</span>
-              <span>|</span>
-              <span>五虎将聚首 新版本超值福利回馈</span>
-              <span>08/14</span>
-            </div>
-          </swiper-slide>
-        </swiper>
+    <m-list-card icon="menu1" title="新闻资讯" :categories="newsCats">
+      <template #items="{category}">
+        <div class="py-2" v-for="(news, i) in category.newsList" :key="i">
+          <span>[{{news.categoryName}}]</span>
+          <span>|</span>
+          <span>{{news.title}}</span>
+          <span>{{news.date}}</span>
         </div>
+      </template>
+    </m-list-card>
 
-    </m-card>
-    
+
     <m-card icon="menu1" title="英雄列表"></m-card>
     <m-card icon="menu1" title="精彩视频"></m-card>
     <m-card icon="menu1" title="图文攻略"></m-card>
-
   </div>
 </template>
 
@@ -77,7 +54,49 @@ export default {
         pagination: {
           el: '.pagination-home'
         }
-      }
+      },
+      newsCats: [
+        {
+          name: "热门",
+          newsList: new Array(5).fill(1).map(v => ({
+            categoryName: '公告',
+            title: '五虎将聚首 新版本超值福利回馈',
+            date: '08/24'
+          }))
+        },
+        {
+          name: "新闻",
+          newsList: new Array(5).fill(1).map(v => ({
+            categoryName: '新闻',
+            title: '五虎将聚首 新版本超值福利回馈',
+            date: '08/24'
+          }))
+        },
+        {
+          name: "公告",
+          newsList: new Array(5).fill(1).map(v => ({
+            categoryName: '公告',
+            title: '五虎将聚首 新版本超值福利回馈',
+            date: '08/24'
+          }))
+        },
+        {
+          name: "活动",
+          newsList: new Array(5).fill(1).map(v => ({
+            categoryName: '公告',
+            title: '五虎将聚首 新版本超值福利回馈',
+            date: '08/24'
+          }))
+        },
+        {
+          name: "赛事",
+          newsList: new Array(5).fill(1).map(v => ({
+            categoryName: '公告',
+            title: '五虎将聚首 新版本超值福利回馈',
+            date: '08/24'
+          }))
+        },
+      ]
     };
   }
 };

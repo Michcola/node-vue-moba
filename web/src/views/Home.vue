@@ -61,7 +61,7 @@ export default {
           newsList: new Array(5).fill(1).map(v => ({
             categoryName: '公告',
             title: '五虎将聚首 新版本超值福利回馈',
-            date: '08/24'
+          date: '08/24'
           }))
         },
         {
